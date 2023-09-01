@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Random Color</title>
+</head>
+<body id="body">
+    
+    <header>
+        <h1>احزر اللون الذي سيظهر في الشاشة</h1>
+    </header>
+
+    <main id="main"></main>
+
+    <script>
+        var colors = ["blue","red","orange","green","yellow","purple","teal","black","grey","hotpink","cyan","brown"] ;
+        const main = document.querySelector('#main') ;
+        
+        function generate(mycolor){
+            const body = document.querySelector('#body') ;
+            randomColor = colors[Math.floor(Math.random() * colors.length)];
+             body.style.backgroundColor = mycolor ;
+            // console.log(color) ;
+            // if(mycolor === randomColor){
+            //    alert("🏆Congratulations🏆");
+            // }else{
+            //     alert("❌Try Again❌");
+            // }
+        }
+        
+        colors.forEach(element => {
+            newSection = document.createElement('section') ;
+            main.appendChild(newSection) ;
+            newDiv = document.createElement('div') ;
+            newSection.appendChild(newDiv) ;
+            newDiv.style.backgroundColor = element ;
+            newDiv.setAttribute("onmouseover",'generate(this.style.backgroundColor)')
+
+            text = document.createElement('p') ;
+            newSection.appendChild(text) ;
+            text.innerHTML = element ;
+        })
+
+    </script>
+
+</body>
+</html>
